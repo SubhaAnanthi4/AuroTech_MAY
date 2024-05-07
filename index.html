@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Raffia.com</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+           
+        }
+
+        header {
+            background-color:rgba(248, 191, 7, 0.979);
+            color: #fff;
+            padding: 20px 0;
+            height:30px;
+        }
+
+        header .logo {
+            margin: 0;
+            font-size: 24px;
+            float: left;
+        }
+
+        header nav {
+            float: right;
+        }
+
+        header nav ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #hero {
+            background-image: url('https://i.etsystatic.com/50502488/r/il/412c80/5862701477/il_fullxfull.5862701477_79ug.jpg');
+            background-size: cover;
+            background-position: center;
+            color:black;
+            text-align: center;
+            padding:150px 20px;
+            font-weight:bolder;
+            font-size: xx-large;
+            
+
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 600px;
+            display: block;
+        }
+
+        
+        .hero h2 {
+        margin: 0;
+        font-size: 36px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            display:block;
+        }
+        
+
+        .btn {
+            
+            background-color:rgba(248, 191, 7, 0.979);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            
+            border-radius: 5px;
+            position: relative;
+            text-align: center;
+
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color:rgb(172, 137, 0);
+        }
+
+        .feature {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .feature i {
+            font-size: 48px;
+            color: #ff6600;
+        }
+
+        .product-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;            
+            overflow: auto;
+            align-items: center;
+         }
+
+        .product {
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            height: 370px; 
+            transition: all 0.3s ease;
+            
+        }
+        .object1
+        {
+            width: 250px;
+            height: 250px;
+            display: block;
+            margin: 0 auto;
+            
+        }
+        .object1:hover{
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .object2
+        {
+            width: 250px;
+            height: 250px;
+            display: block;
+            margin: 0 auto;
+        }
+        .object2:hover{
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .object3
+        {
+            width: 250px;
+            height: 250px;
+            display: block;
+            margin: 0 auto;
+        }
+        .object3:hover{
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .object4
+        {
+            width: 250px;
+            height: 250px;
+            display: block;
+            margin: 0 auto;
+        }
+        .object4:hover{
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h3 {
+            margin-top: 27px ;
+        }
+        h2{
+            background-color:rgb(252, 202, 2); 
+            padding-left: 25px;
+        }
+       h1{
+        font-weight: lighter;
+        text-align: center;
+       }
+       #contact {
+    background-color: #f4f4f4;
+    padding: 50px 20px;
+        }
+       .container2 {
+            max-width: 600px;
+            margin: 0 auto;
+            padding:0 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 96%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(252, 202, 2); 
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display:block;
+            margin: 0 auto;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgb(206, 175, 51);
+             
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Raffia</h1>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            
+                <h1><cite><q>Discover the Beauty of Raffia</q></cite></h1>
+                <p>Explore our exclusive collection of raffia products</p>
+                <a href="#products" class="btn">Shop Now</a>
+           
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="feature">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>Easy Shopping</h3>
+                <h3>Secure Transactions</h3>
+                <h3>Personalized Recommendations</h3>
+                <h3>Fast Shipping</h3>
+                <h3>Responsive Support</h3>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <h2>Featured Products</h2>
+            <div class="product-gallery">
+                <div class="product">
+                    <img class="object1" src="https://5.imimg.com/data5/ANDROID/Default/2021/9/XR/MD/ZY/120011052/product-jpeg-500x500.jpg" alt="Product 1">
+                    <h3>Raffia Bag</h3>
+                    <p>Stylish and eco-friendly raffia bag for any occasion.</p>
+                </div>
+                <div class="product">
+                    <img class= "object2 "src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo5zaFpMk4bVmJiHj-ZQBklczZ8HKHBKxacVQS0SRXNg&s" alt="Product 2">
+                    <h3>Raffia Basket</h3>
+                    <p>Elevate Your Space with Raffia All-Purpose Baskets.</p>
+                </div>
+                <div class="product">
+                    <img class= "object3 "src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeszOIgyUOnTkqnRMCAyIt1STSs1hIiWHJqThwV1jbh2sz87pE55R0W62Hg4LuMCMdqDA&usqp=CAU" alt="product3">
+                    <h3>Raffia Shirts</h3>
+                    <p>Stay cool and chic with our trendy raffia shirts collection.</p>
+                </div>
+                <div class="product">
+                    <img class= "object4 "src="https://m.media-amazon.com/images/I/71gPhtRRESL._AC_UF894,1000_QL80_.jpg" alt="product4">
+                    <h3>Raffia Strings</h3>
+                    <p>Weave Your Dreams with Premium Raffia Strings.</p>
+                </div>
+                
+            </div>
+            <p>Explore and purchase raffia products with ease.</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+           <ul><p>Raffia is dedicated to bringing you the finest raffia products from around the world. Our journey began with a passion for sustainable materials and a commitment to craftsmanship. We believe in the beauty and versatility of raffia, and we strive to share that with you through our carefully curated collection of products.</p></ul> 
+           <ul><p>With a focus on quality and design, we work closely with artisans and designers to create pieces that are not only stylish but also environmentally friendly. From handwoven baskets to chic accessories, each item in our collection tells a story of tradition, innovation, and artistry.</p></ul> 
+            <ul><p>At Raffia, we value transparency, integrity, and customer satisfaction. Whether you're looking for unique home décor, fashion-forward accessories, or thoughtful gifts, we invite you to explore our world of raffia and discover the beauty it has to offer.</p></ul>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container2">
+            <h2>Contact Us</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+    
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+    
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br>
+    
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+</body>
+</html>
