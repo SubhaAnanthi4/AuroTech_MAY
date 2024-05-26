@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            background: url('https://www.shutterstock.com/image-vector/do-list-planning-icon-concept-600nw-739093225.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgb(170, 255, 254);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .todo-input {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .todo-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .todo-input button {
+            padding: 10px;
+            border: none;
+            background-color: #1ac4c7;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .todo-input button:hover {
+            background-color: #10b1b1;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #ddd;
+        }
+
+        li.completed {
+            text-decoration: line-through;
+            color: #aaa;
+        }
+
+        li button {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        li button.complete {
+            color: #5cb85c;
+        }
+
+        li button.delete {
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <div class="todo-input">
+            <input type="text" id="new-task" placeholder="Add a new task...">
+            <button id="add-task-button">Add Task</button>
+        </div>
+        <ul id="todo-list">
+            <!-- Tasks will be dynamically inserted here -->
+        </ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const addTaskButton = document.getElementById('add-task-button');
+            const newTaskInput = document.getElementById('new-task');
+            const todoList = document.getElementById('todo-list');
+
+            addTaskButton.addEventListener('click', addTask);
+            newTaskInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    addTask();
+                }
+            });
+
+            function addTask() {
+                const taskText = newTaskInput.value.trim();
+                if (taskText !== '') {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                        <span>${taskText}</span>
+                        <div>
+                            <button class="complete">✔</button>
+                            <button class="delete">✖</button>
+                        </div>
+                    `;
+
+                    listItem.querySelector('.complete').addEventListener('click', () => {
+                        listItem.classList.toggle('completed');
+                    });
+
+                    listItem.querySelector('.delete').addEventListener('click', () => {
+                        todoList.removeChild(listItem);
+                    });
+
+                    todoList.appendChild(listItem);
+                    newTaskInput.value = '';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
