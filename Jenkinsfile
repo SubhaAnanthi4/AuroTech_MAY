@@ -3,14 +3,14 @@ pipeline {
 
     environment {
         APP_NAME = 'AuroTechApp'
-        DEPLOY_SERVER = 'localhost:3001'
-
+        DEPLOY_SERVER = 'localhost:3000'  // Use your server's IP or hostname if needed
     }
 
     stages {
         stage('Clone Repository') {
             steps {
                 script {
+                    // Cloning the repository from GitHub
                     git 'https://github.com/SubhaAnanthi4/AuroTech_MAY.git'
                 }
             }
@@ -19,6 +19,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
+                    // Install dependencies via npm
+                    echo 'Installing dependencies...'
                     sh 'npm install'
                 }
             }
@@ -27,7 +29,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    echo "Running tests..."
+                    // Run tests using npm
+                    echo 'Running tests...'
                     sh 'npm test'
                 }
             }
@@ -36,7 +39,8 @@ pipeline {
         stage('Build Application') {
             steps {
                 script {
-                    echo "Building application..."
+                    // Build the application
+                    echo 'Building application...'
                     sh 'npm run build'
                 }
             }
@@ -45,10 +49,9 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 script {
-                    echo "Deploying to production..."
-                    sh """
-                    ssh user@${DEPLOY_SERVER} 'cd /path/to/your/app && git pull origin main && npm install && npm start'
-                    """
+                    // Deploy the application by starting the server
+                    echo 'Deploying to production...'
+                    sh 'npm start'
                 }
             }
         }
