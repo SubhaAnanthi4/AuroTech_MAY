@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         APP_NAME = 'AuroTechApp'
-        DEPLOY_SERVER = 'localhost3000:'  // Use localhost for local deployment
+        DEPLOY_SERVER = 'localhost:3000'  // Use localhost with port 3000 for local deployment
     }
 
     stages {
@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     // Cloning the repository from GitHub
-                    git 'https://github.com/SubhaAnanthi4/AuroTech_MAY.git'
+                    git branch: 'main', url: 'https://github.com/SubhaAnanthi4/AuroTech_MAY.git'
                 }
             }
         }
@@ -56,4 +56,3 @@ pipeline {
         }
     }
 }
-
