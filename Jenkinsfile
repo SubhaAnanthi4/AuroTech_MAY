@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     // Cloning the repository from GitHub
-                    git 'https://github.com/SubhaAnanthi4/AuroTech_MAY.git'
+                  git branch: 'main', url: 'https://github.com/SubhaAnanthi4/AuroTech_MAY.git'
                 }
             }
         }
