@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         APP_NAME = 'AuroTechApp'
-        DEPLOY_SERVER = 'localhost:3000'  // Use localhost with port 3000 for local deployment
+        DEPLOY_SERVER = 'localhost:3000'  // Use localhost for local deployment or any server
     }
 
     stages {
@@ -11,37 +11,17 @@ pipeline {
             steps {
                 script {
                     // Cloning the repository from GitHub
-                    git branch: 'main', url: 'https://github.com/SubhaAnanthi4/AuroTech_MAY.git'
+                    git 'https://github.com/SubhaAnanthi4/AuroTech_MAY.git'
                 }
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Deploy Frontend') {
             steps {
                 script {
-                    // Install dependencies via npm
-                    echo 'Installing dependencies...'
-                    sh 'npm install'
-                }
-            }
-        }
-
-        stage('Build Application') {
-            steps {
-                script {
-                    // Build the application (e.g., React app)
-                    echo 'Building application...'
-                    sh 'npm run build'
-                }
-            }
-        }
-
-        stage('Start Local Server') {
-            steps {
-                script {
-                    // Start the local server (e.g., for React app)
-                    echo 'Starting local server on localhost:3000...'
-                    sh 'npm start &'
+                    // Deploying the static files using a simple web server (Python HTTP Server)
+                    echo 'Deploying frontend application...'
+                    sh 'python3 -m http.server 3000 &'
                 }
             }
         }
@@ -56,3 +36,4 @@ pipeline {
         }
     }
 }
+
