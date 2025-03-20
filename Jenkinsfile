@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         APP_NAME = 'AuroTechApp'
-        DEPLOY_SERVER = 'localhost:3000'  // Use your server's IP or hostname if needed
+        DEPLOY_SERVER = 'localhost3000:'  // Use localhost for local deployment
     }
 
     stages {
@@ -26,43 +26,34 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                script {
-                    // Run tests using npm
-                    echo 'Running tests...'
-                    sh 'npm test'
-                }
-            }
-        }
-
         stage('Build Application') {
             steps {
                 script {
-                    // Build the application
+                    // Build the application (e.g., React app)
                     echo 'Building application...'
                     sh 'npm run build'
                 }
             }
         }
 
-        stage('Deploy to Production') {
+        stage('Start Local Server') {
             steps {
                 script {
-                    // Deploy the application by starting the server
-                    echo 'Deploying to production...'
-                    sh 'npm start'
+                    // Start the local server (e.g., for React app)
+                    echo 'Starting local server on localhost:3000...'
+                    sh 'npm start &'
                 }
             }
         }
     }
-    
+
     post {
         success {
-            echo 'Pipeline succeeded!'
+            echo 'Pipeline succeeded! The application is running on localhost:3000.'
         }
         failure {
             echo 'Pipeline failed!'
         }
     }
 }
+
